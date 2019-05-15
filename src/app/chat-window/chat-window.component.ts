@@ -10,11 +10,11 @@ import { Observable } from "rxjs/Observable"
 export class ChatWindowComponent implements OnInit {
 	
 	constructor(
-		private websocket: WebsocketService,
+		public websocket: WebsocketService,
 	) {}
 
 	private username = "Anonymous";
-	private message = '';
+	public message = '';
 	private observer;
 
 	ngOnInit() {		
