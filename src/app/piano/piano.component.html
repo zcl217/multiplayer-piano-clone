@@ -1,0 +1,13 @@
+
+<div id="p-wrapper">
+	<ul id="piano" class = "preload">
+		<li *ngFor="let pianoKey of pianoKeys">
+			<div class = "anchor flexContainer" id="{{pianoKey.whiteKeyId}}" (click)="keyPress(pianoKey.whiteKeyId)">
+				<div class = "circle black hide"></div>
+			</div>
+			<span *ngIf="pianoKey.blackKeyId != 0" class = "flexContainer" id="{{pianoKey.blackKeyId}}" (click)="keyPress(pianoKey.blackKeyId)">
+				<div class = "circle white hide"></div>
+			</span>
+		</li>
+	</ul>
+</div>

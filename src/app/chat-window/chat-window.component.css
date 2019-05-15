@@ -1,0 +1,50 @@
+li {
+	list-style-type: none;
+}
+
+#username{
+	font-weight: bold;
+	color: white;
+}
+
+#message{
+	color: white;
+}
+
+#menuOptions{
+	background: blue;
+    width: 100%;
+    height: 10px;
+}
+
+#bottom{
+	position: fixed;
+    margin-bottom: 1%;
+    bottom: 0;
+	width: 100%;
+}
+
+#chatbox{
+	overflow-y: scroll;
+	max-height: 50vh;
+}
+
+
+#input{
+	margin: 4px;
+    width: 98%;
+    border: 1px solid #fff;
+    background: none;
+    text-shadow: #888 1px 1px;
+    color: #fff;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+}
+
+::placeholder{
+	color: green;
+}
+
+::-webkit-input-placeholder { /* Edge */
+	border: 5px white;
+}

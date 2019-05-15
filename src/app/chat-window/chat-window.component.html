@@ -1,0 +1,15 @@
+
+<div id = "bottom">
+	<div id = "chatbox">
+		<li *ngFor="let msg of websocket.messageList">
+				<div>
+					<span *ngIf="msg.username" id = "username"> {{msg.username}}: </span>
+					<span id = "message"> {{msg.message}} </span>
+				</div>
+		</li>
+	</div>
+	
+	<input [(ngModel)]="message" placeholder="Click here to chat" id = "input" maxlength = "333" />	
+
+	<div id = "menuOptions"></div>
+</div>
