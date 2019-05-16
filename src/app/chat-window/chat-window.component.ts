@@ -15,7 +15,7 @@ export class ChatWindowComponent implements OnInit {
 	
 	public message = '';
 	private observer;
-	private showPrompt = false;
+	public showPrompt = false;
 
 	ngOnInit() {		
 		//https://stackoverflow.com/questions/36130393/angular2-directive-how-to-detect-dom-changes
