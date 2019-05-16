@@ -12,10 +12,10 @@ export class ChatWindowComponent implements OnInit {
 	constructor(
 		public websocket: WebsocketService,
 	) {}
-
-	private username = "Anonymous";
+	
 	public message = '';
 	private observer;
+	private showPrompt = false;
 
 	ngOnInit() {		
 		//https://stackoverflow.com/questions/36130393/angular2-directive-how-to-detect-dom-changes
@@ -60,15 +60,26 @@ export class ChatWindowComponent implements OnInit {
 
 	@HostListener('window:unload', [ '$event' ])
 	unloadHandler(event) {
-		this.websocket.disconnect();
-		this.observer.unsubscribe();
+		//this.websocket.disconnect();
+		//this.observer.unsubscribe();
 	}
 
-  sendMsg(){
-	  if (this.message !== ''){
-		this.websocket.sendMessage(this.message);
-		this.message = '';
-	  }
-  }
+	sendMsg(){
+		if (this.message !== ''){
+			this.websocket.sendMessage(this.message);
+			this.message = '';
+		}
+	}
+	
+	changeUsername(username: string){
+		if (username !== ''){
+			this.websocket.changeUsername(username);
+		}
+		this.showPrompt = false;
+	}
+	
+	userChangePrompt(){
+		this.showPrompt = true;
+	}
   
 }

@@ -79,8 +79,6 @@ export class PianoComponent implements OnInit {
 				this.raiseOctave();
 				
 			}else if (this.keybindings[event.keyCode] > 0 && this.keybindings[event.keyCode] <= 88){
-				console.log(event);
-				console.log(this.keybindings[event.keyCode]);
 				let curElement = document.getElementById(this.keybindings[event.keyCode]);
 
 				curElement.click();
@@ -118,11 +116,9 @@ export class PianoComponent implements OnInit {
 	lowerOctave(): void{
 		if (this.curOctave == 1) return;
 		this.curOctave--;
-		console.log(this.keybindings);
 		for (let binding in this.keybindings){
 			this.keybindings[binding] -= 12;
 		}
-		console.log(this.keybindings);
 	}
 	
 	raiseOctave(): void{

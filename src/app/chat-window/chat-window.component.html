@@ -1,3 +1,12 @@
+<div id = "userChangePrompt" *ngIf="showPrompt">
+	<label>Username:
+	<input #username />
+	</label>
+	<!-- (click) passes input value to add() and then clears the input -->
+	<button (click)="changeUsername(username.value); username.value=''">
+	Change
+	</button>
+</div>
 
 <div id = "bottom">
 	<div id = "chatbox">
@@ -11,5 +20,9 @@
 	
 	<input [(ngModel)]="message" placeholder="Click here to chat" id = "input" maxlength = "333" />	
 
-	<div id = "menuOptions"></div>
+	<div id = "menuOptions">
+		<button (click)="userChangePrompt()">
+		 Change Username
+		</button>
+	</div>
 </div>
