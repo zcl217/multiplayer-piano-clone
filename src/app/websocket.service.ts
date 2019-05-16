@@ -20,7 +20,7 @@ export class WebsocketService {
 	public inChat = false;
 
 	public connect(){
-		this.socket = webSocket('ws://websocket-server-1337.herokuapp.com');
+		this.socket = webSocket('wss://websocket-server-1337.herokuapp.com');
 		this.socket.subscribe(
 			msg => this.handleMsg(msg), // Called whenever there is a message from the server.
 			err => console.log(err), // Called if at any point WebSocket API signals some kind of error.
