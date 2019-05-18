@@ -1,11 +1,22 @@
-<div id = "userChangePrompt" *ngIf="showPrompt">
-	<label>Username:
-	<input #username />
+<div id = "userChange" class = "prompt" *ngIf="showPrompt">
+	<label>
+		Username: <input #username />
 	</label>
 	<!-- (click) passes input value to add() and then clears the input -->
 	<button (click)="changeUsername(username.value); username.value=''">
 	Change
 	</button>
+</div>
+
+<div id = "help" class = "prompt" *ngIf="showHelp">
+	<p>The piano can be played via both clicking and the keyboard.</p>
+	<p>Keyboard row "qwertyuiop" corresponds to the white keys.</p>
+	<p>Keyboard row "asdfghjkl;'" corresponds to the black keys.</p>
+	<p>Keyboard row "zxcvbnm,./" corresponds to the white keys again.</p>
+	
+	<p>To lower or raise octaves, use the ← and → arrow keys. </p>
+	
+	<button class = "close" (click)="toggleHelp()"> X </button>
 </div>
 
 <div id = "bottom">
@@ -23,6 +34,10 @@
 	<div id = "menuOptions">
 		<button (click)="userChangePrompt()">
 		 Change Username
+		</button>
+		
+		<button (click)="toggleHelp()">
+		 Help
 		</button>
 	</div>
 </div>

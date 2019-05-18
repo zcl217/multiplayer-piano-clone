@@ -11,11 +11,15 @@ import { environment } from '../environments/environment';
 export class WebsocketService {
 	constructor() {
 	    this.connect();
+
+		for (let sound = 1; sound <= 88; sound++){
+			let preload = new Audio("./assets/sounds/" + sound + ".mp3");
+		}
 	}
 
 	private socket;
 	private username = "Anonymous";
-	messageList = [];
+	messageList = [{message: "Connecting to server . . ."}];
 	
 	public inChat = false;
 
@@ -23,7 +27,10 @@ export class WebsocketService {
 		this.socket = webSocket('wss://websocket-server-1337.herokuapp.com');
 		this.socket.subscribe(
 			msg => this.handleMsg(msg), // Called whenever there is a message from the server.
-			err => console.log(err), // Called if at any point WebSocket API signals some kind of error.
+			err => {
+				console.log(err);
+				this.messageList.push({message: "Disconnected from server."});
+			}, // Called if at any point WebSocket API signals some kind of error.
 			() => console.log('complete') // Called when connection is closed (for whatever reason).
 		);
 	}
@@ -54,10 +61,10 @@ export class WebsocketService {
 				break;
 			case 'audio':
 				//https://stackoverflow.com/questions/37911333/how-to-get-to-the-public-directory
-				let note = new Audio("./assets/sounds/" + message[command] + ".mp3");
-				let promise = note.play();
+				let sound = new Audio("./assets/sounds/" + message[command] + ".mp3");
+				let promise = sound.play();
 				if (promise !== null){
-					promise.catch(() => { note.play(); })
+					promise.catch(() => { sound.play(); })
 				}
 				break;
 			default:

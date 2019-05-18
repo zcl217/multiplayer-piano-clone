@@ -16,6 +16,7 @@ export class ChatWindowComponent implements OnInit {
 	public message = '';
 	private observer;
 	public showPrompt = false;
+	public showHelp = false;
 
 	ngOnInit() {		
 		//https://stackoverflow.com/questions/36130393/angular2-directive-how-to-detect-dom-changes
@@ -69,6 +70,7 @@ export class ChatWindowComponent implements OnInit {
 			this.websocket.sendMessage(this.message);
 			this.message = '';
 		}
+		console.log(this.websocket.messageList);
 	}
 	
 	changeUsername(username: string){
@@ -79,7 +81,13 @@ export class ChatWindowComponent implements OnInit {
 	}
 	
 	userChangePrompt(){
-		this.showPrompt = true;
+		this.showPrompt = !this.showPrompt;
+		this.showHelp = false;
+	}
+	
+	toggleHelp(){
+		this.showHelp = !this.showHelp;
+		this.showPrompt = false;
 	}
   
 }

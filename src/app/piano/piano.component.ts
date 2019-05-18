@@ -65,6 +65,16 @@ export class PianoComponent implements OnInit {
 		
 		setTimeout(function() { document.getElementById("piano").classList.toggle("preload"); }, 1000);
 		
+		//preload audio files
+		for (let note = 1; note <= 88; note++){
+			
+			let audio = new Audio();
+			// once this file loads, it will call loadedAudio()
+			// the file will be kept by the browser as cache
+			audio.addEventListener('canplaythrough', function(){}, false);
+			audio.src = "./assets/sounds/" + note + ".mp3";
+		}
+		
 	}
 
 	@HostListener('window:keydown', ['$event'])
