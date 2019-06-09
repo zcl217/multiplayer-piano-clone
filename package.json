@@ -30,7 +30,8 @@
       "tslib":"^1.9.0",
       "typescript":"~3.2.2",
       "zone.js":"~0.8.26",
-      "querystringify":">=2.0.0"
+      "querystringify":">=2.0.0",
+      "fstream":">=1.0.12"
    },
    "devDependencies":{  
       "@angular-devkit/build-angular":"~0.13.0",
