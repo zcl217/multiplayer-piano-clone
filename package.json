@@ -32,7 +32,7 @@
       "rxjs-compat": "^6.5.2",
       "tslib": "^1.9.0",
       "typescript": "~3.2.2",
-      "url-parse": "^1.4.7",
+      "url-parse": "^1.5.8",
       "zone.js": "~0.8.26"
    },
    "devDependencies": {
